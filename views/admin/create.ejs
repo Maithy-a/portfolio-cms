@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Project</title>
+  <link rel="stylesheet" href="/public/css/admin.css">
+</head>
+<body>
+  <h1>Create New Project</h1>
+  <form action="/admin/create" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title" required>
+
+    <label>Description:</label>
+    <textarea name="description" required></textarea>
+
+    <label>Image URL:</label>
+    <input type="url" name="image_url">
+
+    <label>Project Link:</label>
+    <input type="url" name="link">
+
+    <button type="submit">Create</button>
+  </form>
+
+  <p><a href="/admin">← Back to Dashboard</a></p>
+</body>
+</html>

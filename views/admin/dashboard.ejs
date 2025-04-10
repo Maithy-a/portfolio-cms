@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="/public/css/admin.css">
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+  <a href="/admin/create">➕ Add New Project</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% projects.forEach(project => { %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.description %></td>
+          <td>
+            <% if (project.image_url) { %>
+              <img src="<%= project.image_url %>" width="100">
+            <% } else { %>
+              No image
+            <% } %>
+          </td>
+          <td>
+            <a href="/admin/edit/<%= project.id %>">✏️ Edit</a>
+            <form action="/admin/delete/<%= project.id %>" method="POST" style="display:inline;">
+              <button type="submit" onclick="return confirm('Delete this project?')">🗑️ Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

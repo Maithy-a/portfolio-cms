@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Project</title>
+  <link rel="stylesheet" href="/public/css/admin.css">
+</head>
+<body>
+  <h1>Edit Project</h1>
+  <form action="/admin/edit/<%= project.id %>" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title" value="<%= project.title %>" required>
+
+    <label>Description:</label>
+    <textarea name="description" required><%= project.description %></textarea>
+
+    <label>Image URL:</label>
+    <input type="url" name="image_url" value="<%= project.image_url %>">
+
+    <label>Project Link:</label>
+    <input type="url" name="link" value="<%= project.link %>">
+
+    <button type="submit">Save Changes</button>
+  </form>
+
+  <p><a href="/admin">← Back to Dashboard</a></p>
+</body>
+</html>
