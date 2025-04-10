@@ -1,9 +1,9 @@
-/* General body and container styling */
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #fafafa88;
     color: #333;
   }
   
@@ -23,6 +23,7 @@ body {
   header h1 {
     font-size: 3rem;
     margin: 0;
+    color: white;
   }
   
   /* Projects Section */
@@ -34,6 +35,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
+    
   }
   
   .project-card {
@@ -42,6 +44,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    border: 2px solid;
   }
   
   .project-card:hover {
