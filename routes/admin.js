@@ -1,8 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const projectController = require('../controllers/projectController');
+import express from 'express';
+import projectController from '../controllers/projectController.js';
 
-// GET admin dashboard
+const router = express.Router();
+
+router.get('/', async (_, res) => {
 router.get('/', async (req, res) => {
   const { data: projects, error } = await require('../supabase/client')
     .from('projects')
@@ -14,9 +15,9 @@ router.get('/', async (req, res) => {
   res.render('admin/dashboard', { projects });
 });
 
-// CREATE
-router.get('/create', (req, res) => {
+router.get('/create', (_, res) => {
   res.render('admin/create');
+});
 });
 router.post('/create', projectController.createProject);
 

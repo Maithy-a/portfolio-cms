@@ -1,7 +1,7 @@
-const supabase = require('../supabase/client');
+import supabase from '../supabase/client.js';
 
 // CREATE
-exports.createProject = async (req, res) => {
+export const createProject = async (req, res) => {
   const { title, description, image_url, link } = req.body;
 
   const { error } = await supabase
@@ -17,7 +17,7 @@ exports.createProject = async (req, res) => {
 };
 
 // READ (for homepage)
-exports.getProjects = async (req, res) => {
+export const getProjects = async (res) => {
   const { data, error } = await supabase
     .from('projects')
     .select('*')
@@ -32,7 +32,7 @@ exports.getProjects = async (req, res) => {
 };
 
 // UPDATE
-exports.updateProject = async (req, res) => {
+export const updateProject = async (req, res) => {
   const { id } = req.params;
   const { title, description, image_url, link } = req.body;
 
@@ -50,7 +50,7 @@ exports.updateProject = async (req, res) => {
 };
 
 // DELETE
-exports.deleteProject = async (req, res) => {
+export const deleteProject = async (req, res) => {
   const { id } = req.params;
 
   const { error } = await supabase

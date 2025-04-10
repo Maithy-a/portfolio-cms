@@ -1,8 +1,9 @@
-const express = require('express');
+import express from 'express';
+import { getProjects } from '../controllers/projectController.js';
+
 const router = express.Router();
-const { getProjects } = require('../controllers/projectController');
 
 // GET homepage
 router.get('/', getProjects);
 
-module.exports = router;
+export default router;
